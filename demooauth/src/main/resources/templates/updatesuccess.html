@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit User Information Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+  <div class="app">
+  <header class="app-header">
+    <div class="app-header-logo">
+      <div class="logo">
+        <span class="logo-icon">
+          <img src="https://assets.codepen.io/285131/almeria-logo.svg" />
+        </span>
+        <h1 class="logo-title">
+          <span>Irvin's</span>
+          <span>Bank</span>
+        </h1>
+      </div>
+    </div>
+    <div class="app-header-actions" th:if="${student !=null}">
+      <button class="user-profile">
+        <span th:text="${student.name}"></span>
+        <span>
+          <img src="https://assets.codepen.io/285131/almeria-avatar.jpeg" />
+        </span>
+      </button>
+      <div class="app-header-actions-buttons">
+      </div>
+    </div>
+    <div class="app-header-mobile">
+      <button class="icon-button large">
+        <i class="ph-list"></i>
+      </button>
+    </div>
+
+  </header>
+  <h1>User Information Has Been Updated Successfully!!!</h1>
+
+  <!-- ADD MORE SPACE HERE -->
+  <div class="account-update-form" style="margin-top: 75px">
+    <div class="uneditable-portions">
+        <p>Name: <span th:if="${student_name != null}" th:text="${student_name}"></span></p> 
+        <p>Account Number: <span th:if="${student_acctnum != null}" th:text="${student_acctnum}"></span></p>
+        <p>Balance: <span th:if="${student_balance != null}" th:text="${student_balance}"></span></p> 
+        <p>Date of Birth: <span th:if="${student_birthDate != null}" th:text="${student_birthDate}"></span></p>
+        <p>Email: <span th:if="${student_email != null}" th:text="${student_email}"></span></p>
+        <p>NRIC: <span th:if="${student_nric != null}" th:text="${student_nric}"></span></p>
+        <p>Phone Number: <span th:if="${student_phone != null}" th:text="${student_phone}"></span></p> 
+        <p>User ID: <span th:if="${student_user != null}" th:text="${student_user}"></span></p> 
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <h1>Irvin<small>©</small></h1>
+    <div>
+      Irvin ©<br />
+      All Rights Reserved 2023
+    </div>
+  </footer>
+
+</body>
+</html>

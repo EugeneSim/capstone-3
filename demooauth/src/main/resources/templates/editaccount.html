@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit User Information Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+  <div class="app">
+  <header class="app-header">
+    <div class="app-header-logo">
+      <div class="logo">
+        <span class="logo-icon">
+          <img src="https://assets.codepen.io/285131/almeria-logo.svg" />
+        </span>
+        <h1 class="logo-title">
+          <span>Irvin's</span>
+          <span>Bank</span>
+        </h1>
+      </div>
+    </div>
+    <div class="app-header-actions" th:if="${student !=null}">
+      <button class="user-profile">
+        <span th:text="${student.name}"></span>
+        <span>
+          <img src="https://assets.codepen.io/285131/almeria-avatar.jpeg" />
+        </span>
+      </button>
+      <div class="app-header-actions-buttons">
+        <!-- <button class="icon-button large">
+          <i class="ph-magnifying-glass"></i>
+        </button>
+        <button class="icon-button large">
+          <i class="ph-bell"></i>
+        </button> -->
+      </div>
+    </div>
+    <div class="app-header-mobile">
+      <button class="icon-button large">
+        <i class="ph-list"></i>
+      </button>
+    </div>
+
+  </header>
+  <h1>Edit User Profile Page</h1>
+  
+  <div class="account-update-form">
+    <div class="uneditable-portions">
+       <p>Name: <span th:text="${student_name}" ></span></p> 
+       <p>Account Number: <span th:text="${student_acctnum}"></span></p>
+       <p>Balance: <span th:text="${student_balance}"></span></p> 
+       <p>Date of Birth: <span th:text="${student_birthDate}"></span></p>
+       <p>Email: <span th:text="${student_email}"></span></p>
+       <p>NRIC: <span th:text="${student_nric}"></span></p>
+       <p>Phone Number: <span th:text="${student_phone}"></span></p> 
+       <p>User ID: <span th:text="${student_user}"></span></p> 
+    </div>
+
+    <form id="updateAccount" th:action="'/account/edited?param='+${student_acctnum}" method="post"> 
+      <input type="hidden" name="_method" value="PUT">
+      <input type="text" name="name" th:value="${student_name}" placeholder="name">
+      <input type="text" name="phoneNumber" th:value="${student_phone}" placeholder="phone">
+      <input type="text" name="email" th:value="${student_email}" placeholder="email">
+      <input type="submit" value="Update Account">
+    </form>
+
+  </div>
+
+  <!-- <div id="success-popup" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Account Updated Successfully!</h3>
+      <p>Your account has been updated successfully.</p>
+      <button type="button" class="btn btn-primary" id="okButton">OK</button>
+    </div>
+  </div>
+   -->
+
+  <footer class="footer">
+    <h1>Irvin<small>©</small></h1>
+    <div>
+      Irvin ©<br />
+      All Rights Reserved 2023
+    </div>
+
+
+    <!-- <script>
+      document.getElementById("updateAccount").addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent the form from submitting (for demonstration purposes)
+
+      // Get the student account number from the form
+      var studentAcctnum = document.getElementById("studentAcctnum").value;
+
+      // Show the success popup
+      showSuccessPopup(studentAcctnum);
+      });
+
+      function showSuccessPopup(studentAcctnum) {
+      var successPopup = document.getElementById("success-popup");
+      successPopup.style.display = "block";
+
+      // Close the popup when the "OK" button is clicked
+      document.getElementById("okButton").addEventListener("click", function () {
+      successPopup.style.display = "none";
+
+      // Redirect the user to the `/account/edited` page with the student_acctnum parameter attached.
+      window.location.href = window.location.href + "?param=" + studentAcctnum;
+      });
+  } -->
+
+      </script>      
+  </footer>
+
+</body>
+</html>

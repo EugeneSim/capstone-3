@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Form_Registration</title>
+      <link rel="stylesheet" href="/css/cust_registration.css">
+
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+   </head>
+   <body>
+      <div class="body">
+         <!-- Your content goes here -->
+         <div class="box1">
+             <div class="summit_img">
+             <img class="summit" th:src="@{/images/girl_poster.png}" alt="">
+         </div>
+         </div>
+         <div class="box2">
+      <div class="form_size">
+         
+         <form th:action="@{/form/result}" th:object="${student}" method="post">
+            <div class = "header">
+            <h5 class="card-title mt-3 text-left">Create an Account</h5>
+         </div>
+            <div class="form-group input-group">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+               </div>
+               <input class="form-control" type="text" th:field="*{name}" placeholder="Full Name" />
+            </div>
+            <div>
+               <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
+            </div>
+
+         
+         <div class="names">
+            <div class="form-group input-group">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-id-card"></i> </span>
+               </div>
+               <input class="form-control" type="text" th:field="*{nric}" placeholder="G1234567Y"/>
+            </div>
+
+            <div class="form-group input-group last">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+               </div>
+               <input class="form-control" type="text" th:field="*{phoneNumber}" placeholder="12345678"/>
+            </div>
+         </div>
+
+         <div>
+            <span class="error" th:if="${#fields.hasErrors('nric')}" th:errors="*{nric}">Name Error</span>
+            <span class="error phone" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Name Error</span>
+         </div>
+         <div class="form-group input-group">
+            <div class="input-group-prepend">
+               <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+            </div>
+               <input class="form-control" type="text" th:field="*{email}" placeholder="smith@gmail.com"/>
+            </div>
+            <div>
+               <span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name Error</span>
+            </div>
+
+            <div class="names">
+            <div class="form-group input-group">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-calendar"></i> </span>
+               </div>
+               <input class="form-control" type="date" th:field="*{birthDate}" placeholder="yyyy-MM-dd" />
+            </div>
+            <div class="form-group input-group last">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
+               </div>
+               <input class="form-control" type="text" th:field="*{userId}" placeholder="userId" />
+            </div>
+         </div>
+
+            <div>
+               <span class="error" th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}">Name Error</span>
+               <span class="error user" th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}">Username Error</span>
+
+            </div>
+            
+            
+            <div class="form-group input-group">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-unlock-alt"></i> </span>
+               </div>
+               <input class="form-control" type="text" th:field="*{acctPwd}" placeholder="Password" />
+            </div>
+
+            <div>
+               <span class="error pass" th:if="${#fields.hasErrors('acctPwd')}" th:errors="*{acctPwd}">Password Error</span>
+
+
+            </div>
+            
+            <button class=" btn btn-dark submit" type="submit">Submit</button>
+         </form>
+         </div>
+         </div>
+      </div>
+   </body>
+</html>
+
+
